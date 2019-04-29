@@ -1,13 +1,14 @@
-package com.tian.wxapp.service;
+package com.tian.wechat.msg.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tian.wxapp.config.WxConfig;
-import com.tian.wxapp.http.HttpApiService;
-import com.tian.wxapp.model.template.WechatTemplateMsg;
-import com.tian.wxapp.request.AccessRequest;
-import com.tian.wxapp.response.AccessResponse;
-import com.tian.wxapp.response.TempMsgResponse;
+import com.tian.wechat.msg.WechatMsgApplication;
+import com.tian.wechat.msg.config.WxConfig;
+import com.tian.wechat.msg.http.HttpApiService;
+import com.tian.wechat.msg.model.template.WechatTemplateMsg;
+import com.tian.wechat.msg.request.AccessRequest;
+import com.tian.wechat.msg.response.AccessResponse;
+import com.tian.wechat.msg.response.TempMsgResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,12 +16,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * 业务测试类
+ */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = DemoWxappApplication.class)
+@SpringBootTest(classes = WechatMsgApplication.class)
 public class TestWechatService {
 
     @Autowired
@@ -52,6 +57,9 @@ public class TestWechatService {
         }
     }
 
+    /**
+     * 发送模板消息
+     */
     @Test
     public void testSendTemplate() {
         TempMsgResponse tempMsgResponse = null;
